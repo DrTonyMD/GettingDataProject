@@ -48,3 +48,6 @@ all_data_subset_with_names <- merge(all_data_subset_mean_SD, activity_labels, by
 # Create a tidy dataset with average of each variable for each activity and subject
 new_data_set <- aggregate(. ~subject_ID + activity_ID, all_data_subset_with_names, mean)
 new_data_set <- new_data_set[order(new_data_set$subject_ID, new_data_set$activity_ID),]
+
+# Write a table with new dataset
+write.table(new_data_set, "newTidyDataSet.txt", row.name = F)
